@@ -68,6 +68,7 @@
 				84E496502FC92E0800A31ABF /* Sources */,
 				84E496512FC92E0800A31ABF /* Frameworks */,
 				84E496522FC92E0800A31ABF /* Resources */,
+				84E4967C2FC9325700A31ABF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -126,6 +127,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		84E4967C2FC9325700A31ABF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/verify-commit.sh",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/.git/hooks/commit-msg",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nset -e\n\nHOOKS_DIR=\"${SRCROOT}/.git/hooks\"\nHOOK_PATH=\"${HOOKS_DIR}/commit-msg\"\n\nmkdir -p \"${HOOKS_DIR}\"\ncp \"${SRCROOT}/verify-commit.sh\" \"${HOOK_PATH}\"\nchmod +x \"${HOOK_PATH}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		84E496502FC92E0800A31ABF /* Sources */ = {
